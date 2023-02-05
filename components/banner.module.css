@@ -1,0 +1,32 @@
+.title1{
+ margin: 0;
+ border:0;
+ font-size: 3rem;
+
+}
+
+.title2{
+  margin: 0;
+  border:0;
+  color : rgba(67, 56, 202, 1);
+  font-size: 3rem;
+}
+
+.banner{
+  margin:1.5rem;
+}
+
+.subTitle{
+  margin: 0;
+  border:0;
+  font-size: 1.5rem;
+  
+}
+
+.btn{
+  margin-top:0.5rem;
+  background-color :rgba(67, 56, 202, 1);
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+}

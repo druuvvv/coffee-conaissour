@@ -1,0 +1,40 @@
+.container {
+    padding: 0.5rem;
+    padding-top: 0rem;
+
+}
+
+.imgwrapper {
+   display: block;
+   margin-top:0.5rem;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 1rem;
+   border-radius: 0.5rem;
+
+}
+
+.headwrapper{
+    text-align: center;
+    font-size: 1.75rem;
+    margin:0.75rem;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: "...";
+}
+
+@media(min-width : 640px){
+
+}
+
+@media(min-width : 768px){
+
+}
+
+@media(min-width : 1024px){
+
+}
+
+@media(min-width : 1280px){
+
+}
