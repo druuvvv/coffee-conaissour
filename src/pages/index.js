@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 import Banner from "../../components/banner.js"
 import {getcoffeestores} from "../../lib/coffee-store"
 
+import { useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 const apikey = "fsq3xWaJbZnuZ5gJAYIldNBdKN9Bi5a83qeLUjdV4rxfHFA=";
@@ -24,10 +25,34 @@ export async function getStaticProps(context){
 
 
 export default function Home(props) {
+  const [latlong , setlatlong] = useState(1);
 
-  const buttonClickHandler =()=>{
-    console.log("Wassup");
-  };
+  const [locationErrorMsg , setLocationErrorMsg] = useState(1);
+  
+  const success = (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        setlatlong(`${latitude},${longitude}`);
+        console.log(`Set Location as ${latitude},${longitude}`);
+        setLocationErrorMsg(1);
+    }
+
+  const error = () => {
+        setLocationErrorMsg("Unable to retrieve your location");
+    }
+    
+  const handleTrackLocation = () => {
+        
+        if(!navigator.geolocation){
+            setLocationErrorMsg("Geolocation is not supported by your browser");
+        }
+        else{
+            navigator.geolocation.getCurrentPosition(success , error);
+        }
+    }
+
+  
+
   return (
     
     <>
@@ -40,7 +65,7 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         
-        <Banner className={styles.banner} buttonText="View nearby Shops" HandleOnClick={buttonClickHandler} />
+        <Banner className={styles.banner} buttonText="View nearby Shops" HandleOnClick={handleTrackLocation} />
         
         {props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Ranchi Stores</h2>
           <div className={styles.cardLayout}>
