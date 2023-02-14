@@ -8,7 +8,7 @@ const card = (props) =>{
            <a className={styles.cardLink}>
             <div className={cls("glass" , styles.container)}>
             <p className={styles.headwrapper}><b>{props.name}</b></p>
-            <Image className={styles.imgwrapper} src={props.imageurl} width="260" height="160" />
+            <Image className={styles.imgwrapper} src={props.imageurl} width="260" height="160" alt="Cafe Image" />
             </div>
             </a>
             </Link>

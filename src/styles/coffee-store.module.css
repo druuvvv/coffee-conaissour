@@ -4,7 +4,27 @@
     column-gap: 0rem;
 
 }
+.icon{
+    float: left;
+}
 
+.nameWrapper{
+    font-size: 21rem;
+}
+
+.iconWrapper{
+    display: grid;
+    grid-template-columns: 0.5fr 9.5fr;
+}
+
+.text{
+    display: inline;
+    font-size: 1.25rem;
+    margin: 0rem;
+    margin-bottom: 3rem;
+    margin-left: 1rem;
+
+}
 .col1{
 
 }
@@ -22,12 +42,12 @@
 .imgWrapper{
     border-radius: 1rem;
     width: 100%;
-    height: auto;
+
 }
 
 .name{
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .back{
@@ -43,7 +63,10 @@
 }
 
 @media(min-width :1024px){
-
+    .name{
+        font-size: 3rem;
+        color: black;
+    }
     .container{
         grid-template-columns: 1fr 2fr 0.5fr;
         margin:2rem
@@ -61,6 +84,6 @@
     .imgWrapper{
         border-radius: 1rem;
         width: 600px;
-        height: 360px;
+        height: 360px   ;
     }
 }
