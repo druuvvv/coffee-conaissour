@@ -7,7 +7,7 @@ import styles from "../../styles/coffee-store.module.css"
 import {getcoffeestores} from "../../../lib/coffee-store.js"
 
 export async function getStaticProps(staticProps){
-    const coffeeStoresdata = await getcoffeestores('cafes',85.32648638053675,23.347789158106185,6);
+    const coffeeStoresdata = await getcoffeestores('cafes','23.347789158106185,85.32648638053675',6);
     const params = staticProps.params;
     console.log(coffeeStoresdata)
     return {
