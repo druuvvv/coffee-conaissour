@@ -8,7 +8,8 @@ import { getcoffeestores } from "../../lib/coffee-store"
 import { useState} from 'react';
 import { useEffect} from 'react';
 import { useContext } from 'react';
-import {StoreContext} from './_app.js'
+import { StoreContext } from '../../context/store-context.js'
+import { LLContext } from '../../context/store-context.js'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -23,7 +24,7 @@ export async function getStaticProps(context){
   };
 }
 const getLatLong = () => {
-  const [latlong , setlatlong] = useState("");
+  const {latlong , setlatlong } = useContext(LLContext)
   const [locationErrorMsg , setLocationErrorMsg] = useState("");
   const [isLocating , setIsLocating] = useState(false);
   const [hasFetched , setHasFetched] = useState(false);
@@ -65,9 +66,8 @@ const getLatLong = () => {
 }
 
 export default function Home(props) {
-const [FetchedCoffeeStores , setCoffeeStores] = useState('')
-const { lala,salala } = useContext(StoreContext);
-console.log(lala);
+const {FetchedCoffeeStores,setCoffeeStores } = useContext(StoreContext);
+console.log(FetchedCoffeeStores);
 const fetchStores = async (latlong) => {    
 const fetchedStores = await getcoffeestores('cafes' , latlong , 30);
   setCoffeeStores(fetchedStores)
@@ -105,7 +105,7 @@ useEffect(() => {
         buttonText= {isLocating ? "Locating..." :"View Nearby Stores"}
         HandleOnClick={buttonClickHandler} />
 
-        {props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Ranchi Stores</h2>
+        {FetchedCoffeeStores.length == null && props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Ranchi Stores</h2>
           <div className={styles.cardLayout}>
             {props.coffeeStores.map(coffeeStore =>{ 
               return(<Card 
@@ -118,7 +118,7 @@ useEffect(() => {
            </div>
            </div>)}
            
-          {hasFetched && FetchedCoffeeStores.length>0 && (<div> <h2 className={styles.heading2}>Stores Nearby You</h2>
+          {FetchedCoffeeStores.length>0 && (<div> <h2 className={styles.heading2}>Stores Nearby You</h2>
           <div className={styles.cardLayout}>
             {FetchedCoffeeStores.map(fetchedCoffeeStore =>{ 
               return(<Card 
@@ -129,13 +129,9 @@ useEffect(() => {
                 url={`/coffee-store/${fetchedCoffeeStore.fsq_id}`} />);
               })}  
            </div>
-           </div>)}
+           </div>)
+           }
 
-
-
-        
-        
-      
       </main>
     </>
   )

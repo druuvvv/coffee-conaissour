@@ -1,21 +1,7 @@
 import '@/styles/globals.css'
-import {createContext} from 'react'
-import {useState} from 'react';
-
-
-export const StoreContext = createContext();
-
-const StoreProvider = ({children}) => {
-  const [FetchedCoffeeStores, setCoffeeStores ] = useState({});
-
-  return (
-    <StoreContext.Provider value={{FetchedCoffeeStores , setCoffeeStores}}>
-      {children}
-    </StoreContext.Provider>
-  );
-}
-
+import { LLProvider } from '../../context/store-context'
+import { StoreProvider } from '../../context/store-context'
 
 export default function App({ Component, pageProps }) {
-  return <StoreProvider><Component {...pageProps} /></StoreProvider>
+  return <LLProvider><StoreProvider><Component {...pageProps} /></StoreProvider></LLProvider>
 }

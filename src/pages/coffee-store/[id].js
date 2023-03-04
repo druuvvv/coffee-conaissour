@@ -5,7 +5,9 @@ import Image from "next/image"
 import cls from "classname"
 import styles from "../../styles/coffee-store.module.css"
 import {getcoffeestores} from "../../../lib/coffee-store.js"
-
+import {useContext} from 'react'
+import {useState} from 'react'
+import { StoreContext } from "../../../context/store-context"
 export async function getStaticProps(staticProps){
     const coffeeStoresdata = await getcoffeestores('cafes','23.347789158106185,85.32648638053675',6);
     const params = staticProps.params;
@@ -35,6 +37,9 @@ export async function getStaticPaths(){
 }
 var counter = 0;
 const Coffeestore = (props) => {
+    const [name,setName] = useState(props.coffeeStore.name || null)
+    const [imgUrl , setimgUrl] = useState(props.coffeeStore.imgUrl || null)
+    const {FetchedCoffeeStores,setCoffeeStores } = useContext(StoreContext);
     const onClickHandler =( ) =>{
             counter +=1;
             return counter;
@@ -43,11 +48,14 @@ const Coffeestore = (props) => {
     const router = useRouter();
     
     if(router.isFallback){
-        console.log("Loading");
+        setName(FetchedCoffeeStores.name)
+        setimgUrl(FetchedCoffeeStores.imgUrl)
        return(<div> Loading..... </div>) 
+       const {formatted_address , cross_street} = FetchedCoffeeStores.lo;
        
     }
-    const {name , imgUrl} = props.coffeeStore;
+
+    // const {name , imgUrl} = props.coffeeStore;
     const {formatted_address , cross_street} = props.coffeeStore.location;
     return (<div className={styles.layout}>
         <Head>
