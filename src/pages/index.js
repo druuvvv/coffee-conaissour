@@ -7,6 +7,8 @@ import Banner from "../../components/banner.js"
 import { getcoffeestores } from "../../lib/coffee-store"
 import { useState} from 'react';
 import { useEffect} from 'react';
+import { useContext } from 'react';
+import StoreContext from './_app.js'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -64,7 +66,8 @@ const getLatLong = () => {
 
 export default function Home(props) {
 const [FetchedCoffeeStores , setCoffeeStores] = useState('')
-
+const { lala,salala } = useContext(StoreContext);
+console.log(lala);
 const fetchStores = async (latlong) => {    
 const fetchedStores = await getcoffeestores('cafes' , latlong , 30);
   setCoffeeStores(fetchedStores)
