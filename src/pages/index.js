@@ -8,7 +8,7 @@ import { getcoffeestores } from "../../lib/coffee-store"
 import { useState} from 'react';
 import { useEffect} from 'react';
 import { useContext } from 'react';
-import StoreContext from './_app.js'
+import {StoreContext} from './_app.js'
 const inter = Inter({ subsets: ['latin'] })
 
 

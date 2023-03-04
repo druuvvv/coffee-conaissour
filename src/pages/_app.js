@@ -3,13 +3,13 @@ import {createContext} from 'react'
 import {useState} from 'react';
 
 
-const StoreContext = createContext();
+export const StoreContext = createContext();
 
 const StoreProvider = ({children}) => {
-  const [fetchedStores, setfetchedStores] = useState({'two':2});
+  const [FetchedCoffeeStores, setCoffeeStores ] = useState({});
 
   return (
-    <StoreContext.Provider value={{fetchedStores , setfetchedStores}}>
+    <StoreContext.Provider value={{FetchedCoffeeStores , setCoffeeStores}}>
       {children}
     </StoreContext.Provider>
   );
