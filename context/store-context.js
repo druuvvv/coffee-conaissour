@@ -12,10 +12,10 @@ export const LLProvider = ({children}) =>{
   </LLContext.Provider>)
 }
 export const StoreProvider = ({children}) => {
-  const [FetchedCoffeeStores, setCoffeeStores ] = useState({});
+  const [ FetchedcoffeeStores, setCoffeeStores ] = useState({});
 
   return (
-    <StoreContext.Provider value={{FetchedCoffeeStores , setCoffeeStores}}>
+    <StoreContext.Provider value={{ FetchedcoffeeStores , setCoffeeStores}}>
       {children}
     </StoreContext.Provider>
   );

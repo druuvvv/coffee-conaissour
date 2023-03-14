@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function getStaticProps(context){
   
-  const coffeeStores = await getcoffeestores('cafes',"23.347789158106185,85.32648638053675",6);
+  const coffeeStores = await getcoffeestores('cafes' , '23.347789158106185,85.32648638053675' , 6);
   
   return {
     props: {
@@ -66,14 +66,12 @@ const getLatLong = () => {
 }
 
 export default function Home(props) {
-const {FetchedCoffeeStores,setCoffeeStores } = useContext(StoreContext);
-console.log(FetchedCoffeeStores);
+const { FetchedcoffeeStores,setCoffeeStores } = useContext(StoreContext);
 const fetchStores = async (latlong) => {    
-const fetchedStores = await getcoffeestores('cafes' , latlong , 30);
+const response = await fetch(`/api/getCoffeeStoreByLocation?latlong=${latlong}&limit=30`)
+  const fetchedStores = await response.json()
   setCoffeeStores(fetchedStores)
-  console.log({fetchedStores});
 }
-
 const {handleTrackLocation , latlong , locationErrorMsg, isLocating ,hasFetched} = getLatLong();
 
 useEffect(() => {
@@ -105,7 +103,7 @@ useEffect(() => {
         buttonText= {isLocating ? "Locating..." :"View Nearby Stores"}
         HandleOnClick={buttonClickHandler} />
 
-        {FetchedCoffeeStores.length == null && props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Ranchi Stores</h2>
+        { FetchedcoffeeStores.length == null && props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Ranchi Stores</h2>
           <div className={styles.cardLayout}>
             {props.coffeeStores.map(coffeeStore =>{ 
               return(<Card 
@@ -118,9 +116,9 @@ useEffect(() => {
            </div>
            </div>)}
            
-          {FetchedCoffeeStores.length>0 && (<div> <h2 className={styles.heading2}>Stores Nearby You</h2>
+          { FetchedcoffeeStores.length>0 && (<div> <h2 className={styles.heading2}>Stores Nearby You</h2>
           <div className={styles.cardLayout}>
-            {FetchedCoffeeStores.map(fetchedCoffeeStore =>{ 
+            { FetchedcoffeeStores.map(fetchedCoffeeStore =>{ 
               return(<Card 
                 className={styles.card}
                 key = {fetchedCoffeeStore.fsq_id}

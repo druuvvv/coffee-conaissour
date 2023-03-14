@@ -1,0 +1,56 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/api/createCoffeeStore";
+exports.ids = ["pages/api/createCoffeeStore"];
+exports.modules = {
+
+/***/ "airtable":
+/*!***************************!*\
+  !*** external "airtable" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = require("airtable");
+
+/***/ }),
+
+/***/ "(api)/./lib/airtable.js":
+/*!*************************!*\
+  !*** ./lib/airtable.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getRecords\": () => (/* binding */ getRecords),\n/* harmony export */   \"table\": () => (/* binding */ table)\n/* harmony export */ });\nconst Airtable = __webpack_require__(/*! airtable */ \"airtable\");\nconst base = new Airtable({\n    apiKey: process.env.AIRTABLE_APIKEY\n}).base(process.env.AIRTABLE_BASEKEY);\nconst table = base(\"Coffee-Stores\");\nconst getRecords = (records)=>{\n    return records.map((record)=>{\n        return {\n            ...record.fields\n        };\n    });\n};\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9saWIvYWlydGFibGUuanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxNQUFNQSxXQUFXQyxtQkFBT0EsQ0FBQztBQUN6QixNQUFNQyxPQUFPLElBQUlGLFNBQVM7SUFBQ0csUUFBUUMsUUFBUUMsR0FBRyxDQUFDQyxlQUFlO0FBQUEsR0FBR0osSUFBSSxDQUFDRSxRQUFRQyxHQUFHLENBQUNFLGdCQUFnQjtBQUVsRyxNQUFNQyxRQUFRTixLQUFLO0FBRW5CLE1BQU1PLGFBQWEsQ0FBQ0MsVUFBVztJQUUzQixPQUNJQSxRQUFRQyxHQUFHLENBQUNDLENBQUFBLFNBQVU7UUFDbEIsT0FBTztZQUNILEdBQUdBLE9BQU9DLE1BQU07UUFDcEI7SUFDSjtBQUVSO0FBRTZCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vY2FmZXMvLi9saWIvYWlydGFibGUuanM/Y2Q5ZSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBBaXJ0YWJsZSA9IHJlcXVpcmUoJ2FpcnRhYmxlJyk7XHJcbmNvbnN0IGJhc2UgPSBuZXcgQWlydGFibGUoe2FwaUtleTogcHJvY2Vzcy5lbnYuQUlSVEFCTEVfQVBJS0VZfSkuYmFzZShwcm9jZXNzLmVudi5BSVJUQUJMRV9CQVNFS0VZKTtcclxuXHJcbmNvbnN0IHRhYmxlID0gYmFzZSgnQ29mZmVlLVN0b3JlcycpO1xyXG5cclxuY29uc3QgZ2V0UmVjb3JkcyA9IChyZWNvcmRzKSA9PntcclxuXHJcbiAgICByZXR1cm4oXHJcbiAgICAgICAgcmVjb3Jkcy5tYXAocmVjb3JkID0+IHtcclxuICAgICAgICAgICAgcmV0dXJuIHtcclxuICAgICAgICAgICAgICAgIC4uLnJlY29yZC5maWVsZHMsXHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9KVxyXG4gICAgICAgIClcclxufVxyXG5cclxuZXhwb3J0IHsgdGFibGUgLCBnZXRSZWNvcmRzIH0iXSwibmFtZXMiOlsiQWlydGFibGUiLCJyZXF1aXJlIiwiYmFzZSIsImFwaUtleSIsInByb2Nlc3MiLCJlbnYiLCJBSVJUQUJMRV9BUElLRVkiLCJBSVJUQUJMRV9CQVNFS0VZIiwidGFibGUiLCJnZXRSZWNvcmRzIiwicmVjb3JkcyIsIm1hcCIsInJlY29yZCIsImZpZWxkcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./lib/airtable.js\n");
+
+/***/ }),
+
+/***/ "(api)/./src/pages/api/createCoffeeStore.js":
+/*!********************************************!*\
+  !*** ./src/pages/api/createCoffeeStore.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _lib_airtable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../lib/airtable */ \"(api)/./lib/airtable.js\");\n\nconst createCoffeeStore = async (req, res)=>{\n    const { id , name , address , neighbourhood , voting , imgUrl  } = req.body;\n    if (id) {\n        try {\n            if (req.method === \"POST\") {\n                const findCoffeeStoreRecords = await _lib_airtable__WEBPACK_IMPORTED_MODULE_0__.table.select({\n                    filterByFormula: `id=${id}`\n                }).firstPage();\n                if (findCoffeeStoreRecords.length !== 0) {\n                    const records = (0,_lib_airtable__WEBPACK_IMPORTED_MODULE_0__.getRecords)(findCoffeeStoreRecords);\n                    res.json(records);\n                } else {\n                    if (id && name) {\n                        const createRecord = await _lib_airtable__WEBPACK_IMPORTED_MODULE_0__.table.create([\n                            {\n                                \"fields\": {\n                                    id,\n                                    name,\n                                    address,\n                                    neighbourhood,\n                                    voting,\n                                    imgUrl\n                                }\n                            }\n                        ]);\n                        const records = (0,_lib_airtable__WEBPACK_IMPORTED_MODULE_0__.getRecords)(createRecord);\n                        res.json({\n                            records\n                        });\n                    } else {\n                        res.status(400);\n                        res.json({\n                            message: \"Name missing\"\n                        });\n                    }\n                }\n            }\n        } catch (error) {\n            console.error({\n                message: \"Error creating or finding store\",\n                error\n            });\n            res.status(500);\n            res.json({\n                message: \"Error creating or finding store\",\n                error\n            });\n        }\n    } else {\n        res.status(400);\n        res.json({\n            message: \"Gimme ID mf\"\n        });\n    }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createCoffeeStore);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9zcmMvcGFnZXMvYXBpL2NyZWF0ZUNvZmZlZVN0b3JlLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7O0FBQXlEO0FBRXpELE1BQU1FLG9CQUFvQixPQUFPQyxLQUFJQyxNQUFRO0lBQ3pDLE1BQU0sRUFBQ0MsR0FBRSxFQUFDQyxLQUFJLEVBQUNDLFFBQU8sRUFBQ0MsY0FBYSxFQUFDQyxPQUFNLEVBQUNDLE9BQU0sRUFBQyxHQUFHUCxJQUFJUSxJQUFJO0lBQzlELElBQUdOLElBQUc7UUFDRixJQUFHO1lBQ0gsSUFBR0YsSUFBSVMsTUFBTSxLQUFLLFFBQU87Z0JBRXpCLE1BQU1DLHlCQUF5QixNQUFNYix1REFBWSxDQUM3QztvQkFBQ2UsaUJBQWtCLENBQUMsR0FBRyxFQUFFVixHQUFHLENBQUM7Z0JBQUEsR0FDL0JXLFNBQVM7Z0JBRVgsSUFBR0gsdUJBQXVCSSxNQUFNLEtBQUssR0FBRTtvQkFDbkMsTUFBTUMsVUFBVWpCLHlEQUFVQSxDQUFDWTtvQkFDM0JULElBQUllLElBQUksQ0FBQ0Q7Z0JBQ2IsT0FDSTtvQkFDQSxJQUFHYixNQUFNQyxNQUFLO3dCQUNWLE1BQU1jLGVBQWUsTUFBTXBCLHVEQUFZLENBQUM7NEJBQ3BDO2dDQUNJLFVBQVU7b0NBQ05LO29DQUNBQztvQ0FDQUM7b0NBQ0FDO29DQUNBQztvQ0FDQUM7Z0NBQ0o7NEJBQ0o7eUJBQ0g7d0JBQ0QsTUFBTVEsVUFBVWpCLHlEQUFVQSxDQUFDbUI7d0JBQzNCaEIsSUFBSWUsSUFBSSxDQUFDOzRCQUFDRDt3QkFBTztvQkFDckIsT0FDSTt3QkFDQWQsSUFBSWtCLE1BQU0sQ0FBQzt3QkFDWGxCLElBQUllLElBQUksQ0FBQzs0QkFDTEksU0FBUTt3QkFDWjtvQkFDSixDQUFDO2dCQUNMLENBQUM7WUFBQSxDQUFDO1FBQUEsRUFDRixPQUFNQyxPQUFNO1lBQ1JDLFFBQVFELEtBQUssQ0FBQztnQkFBQ0QsU0FBUztnQkFBb0NDO1lBQU07WUFDbEVwQixJQUFJa0IsTUFBTSxDQUFDO1lBQ1hsQixJQUFJZSxJQUFJLENBQUM7Z0JBQUNJLFNBQVM7Z0JBQW9DQztZQUFNO1FBQ2pFO0lBQUMsT0FDTztRQUNBcEIsSUFBSWtCLE1BQU0sQ0FBQztRQUNYbEIsSUFBSWUsSUFBSSxDQUFDO1lBQ0xJLFNBQVE7UUFDWjtJQUNKLENBQUM7QUFDYjtBQUlBLGlFQUFlckIsaUJBQWlCQSxFQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vY2FmZXMvLi9zcmMvcGFnZXMvYXBpL2NyZWF0ZUNvZmZlZVN0b3JlLmpzP2UzMWQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdGFibGUsZ2V0UmVjb3JkcyB9IGZyb20gXCIuLi8uLi8uLi9saWIvYWlydGFibGVcIjtcclxuXHJcbmNvbnN0IGNyZWF0ZUNvZmZlZVN0b3JlID0gYXN5bmMgKHJlcSxyZXMpID0+IHtcclxuICAgIGNvbnN0IHtpZCxuYW1lLGFkZHJlc3MsbmVpZ2hib3VyaG9vZCx2b3RpbmcsaW1nVXJsfSA9IHJlcS5ib2R5O1xyXG4gICAgaWYoaWQpe1xyXG4gICAgICAgIHRyeXtcclxuICAgICAgICBpZihyZXEubWV0aG9kID09PSAnUE9TVCcpe1xyXG5cclxuICAgICAgICBjb25zdCBmaW5kQ29mZmVlU3RvcmVSZWNvcmRzID0gYXdhaXQgdGFibGUuc2VsZWN0KFxyXG4gICAgICAgICAgICB7ZmlsdGVyQnlGb3JtdWxhIDogYGlkPSR7aWR9YH1cclxuICAgICAgICApLmZpcnN0UGFnZSgpXHJcbiAgICBcclxuICAgICAgICBpZihmaW5kQ29mZmVlU3RvcmVSZWNvcmRzLmxlbmd0aCAhPT0gMCl7XHJcbiAgICAgICAgICAgIGNvbnN0IHJlY29yZHMgPSBnZXRSZWNvcmRzKGZpbmRDb2ZmZWVTdG9yZVJlY29yZHMpXHJcbiAgICAgICAgICAgIHJlcy5qc29uKHJlY29yZHMpO1xyXG4gICAgICAgIH1cclxuICAgICAgICBlbHNle1xyXG4gICAgICAgICAgICBpZihpZCAmJiBuYW1lKXtcclxuICAgICAgICAgICAgICAgIGNvbnN0IGNyZWF0ZVJlY29yZCA9IGF3YWl0IHRhYmxlLmNyZWF0ZShbXHJcbiAgICAgICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBcImZpZWxkc1wiOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hbWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhZGRyZXNzLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbmVpZ2hib3VyaG9vZCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZvdGluZyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGltZ1VybFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgXSlcclxuICAgICAgICAgICAgICAgIGNvbnN0IHJlY29yZHMgPSBnZXRSZWNvcmRzKGNyZWF0ZVJlY29yZCk7XHJcbiAgICAgICAgICAgICAgICByZXMuanNvbih7cmVjb3Jkc30pXHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgZWxzZXtcclxuICAgICAgICAgICAgICAgIHJlcy5zdGF0dXMoNDAwKTtcclxuICAgICAgICAgICAgICAgIHJlcy5qc29uKHtcclxuICAgICAgICAgICAgICAgICAgICBtZXNzYWdlOlwiTmFtZSBtaXNzaW5nXCJcclxuICAgICAgICAgICAgICAgIH0pXHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9fX1cclxuICAgICAgICBjYXRjaChlcnJvcil7XHJcbiAgICAgICAgICAgIGNvbnNvbGUuZXJyb3Ioe21lc3NhZ2U6IFwiRXJyb3IgY3JlYXRpbmcgb3IgZmluZGluZyBzdG9yZVwiICwgZXJyb3IgfSlcclxuICAgICAgICAgICAgcmVzLnN0YXR1cyg1MDApXHJcbiAgICAgICAgICAgIHJlcy5qc29uKHttZXNzYWdlOiBcIkVycm9yIGNyZWF0aW5nIG9yIGZpbmRpbmcgc3RvcmVcIiAsIGVycm9yIH0pXHJcbiAgICAgICAgfX1cclxuICAgICAgICAgICAgZWxzZXtcclxuICAgICAgICAgICAgICAgIHJlcy5zdGF0dXMoNDAwKTtcclxuICAgICAgICAgICAgICAgIHJlcy5qc29uKHtcclxuICAgICAgICAgICAgICAgICAgICBtZXNzYWdlOlwiR2ltbWUgSUQgbWZcIlxyXG4gICAgICAgICAgICAgICAgfSlcclxuICAgICAgICAgICAgfVxyXG59XHJcbiAgICBcclxuXHJcblxyXG5leHBvcnQgZGVmYXVsdCBjcmVhdGVDb2ZmZWVTdG9yZTsiXSwibmFtZXMiOlsidGFibGUiLCJnZXRSZWNvcmRzIiwiY3JlYXRlQ29mZmVlU3RvcmUiLCJyZXEiLCJyZXMiLCJpZCIsIm5hbWUiLCJhZGRyZXNzIiwibmVpZ2hib3VyaG9vZCIsInZvdGluZyIsImltZ1VybCIsImJvZHkiLCJtZXRob2QiLCJmaW5kQ29mZmVlU3RvcmVSZWNvcmRzIiwic2VsZWN0IiwiZmlsdGVyQnlGb3JtdWxhIiwiZmlyc3RQYWdlIiwibGVuZ3RoIiwicmVjb3JkcyIsImpzb24iLCJjcmVhdGVSZWNvcmQiLCJjcmVhdGUiLCJzdGF0dXMiLCJtZXNzYWdlIiwiZXJyb3IiLCJjb25zb2xlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./src/pages/api/createCoffeeStore.js\n");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../webpack-api-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__("(api)/./src/pages/api/createCoffeeStore.js"));
+module.exports = __webpack_exports__;
+
+})();
