@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function getStaticProps(context){
   
-  const coffeeStores = await getcoffeestores('cafes' , '23.347789158106185,85.32648638053675' , 6);
+  const coffeeStores = await getcoffeestores('cafes' , '23.253402844446168,77.4019759419206' , 6);
   
   return {
     props: {
@@ -103,7 +103,7 @@ useEffect(() => {
         buttonText= {isLocating ? "Locating..." :"View Nearby Stores"}
         HandleOnClick={buttonClickHandler} />
 
-        { FetchedcoffeeStores.length == null && props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Ranchi Stores</h2>
+        { FetchedcoffeeStores.length == null && props.coffeeStores.length >0 && (<div> <h2 className={styles.heading2}>Bhopal Stores</h2>
           <div className={styles.cardLayout}>
             {props.coffeeStores.map(coffeeStore =>{ 
               return(<Card 

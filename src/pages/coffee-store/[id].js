@@ -11,7 +11,7 @@ import styles from "../../styles/coffee-store.module.css";
 
 export async function getStaticProps(staticProps) {
   const params = staticProps.params;
-  const coffeeStores = await getcoffeestores('cafes','23.347789158106185,85.32648638053675',6);
+  const coffeeStores = await getcoffeestores('cafes','23.253402844446168,77.4019759419206',6);
   const findCoffeeStoreById = coffeeStores.find((coffeeStore) => {
     return coffeeStore.fsq_id.toString() === params.id; 
   });
@@ -23,7 +23,7 @@ export async function getStaticProps(staticProps) {
 }
 
 export async function getStaticPaths() {
-  const coffeeStores = await getcoffeestores('cafes','23.347789158106185,85.32648638053675',6);
+  const coffeeStores = await getcoffeestores('cafes','23.253402844446168,77.4019759419206',6);
   const paths = coffeeStores.map((coffeeStore) => {
     return {
       params: { id: coffeeStore.fsq_id.toString() },
