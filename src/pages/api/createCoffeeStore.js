@@ -1,25 +1,22 @@
-import { table,getRecords } from "../../../lib/airtable";
+import { table,getRecords,getCoffeeStoreRecords } from "../../../lib/airtable";
 
 const createCoffeeStore = async (req,res) => {
-    const {id,name,address,neighbourhood,voting,imgUrl} = req.body;
-    if(id){
+    const {fsq_id,name,address,neighbourhood,voting,imgUrl} = req.body;
+    if(fsq_id){
         try{
         if(req.method === 'POST'){
 
-        const findCoffeeStoreRecords = await table.select(
-            {filterByFormula : `id=${id}`}
-        ).firstPage()
+            const records = await getCoffeeStoreRecords(fsq_id);
     
-        if(findCoffeeStoreRecords.length !== 0){
-            const records = getRecords(findCoffeeStoreRecords)
+        if(records.length !== 0){
             res.json(records);
         }
         else{
-            if(id && name){
+            if(fsq_id && name){
                 const createRecord = await table.create([
                     {
                         "fields": {
-                            id,
+                            fsq_id,
                             name,
                             address,
                             neighbourhood,

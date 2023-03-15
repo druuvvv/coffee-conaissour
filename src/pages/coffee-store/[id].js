@@ -6,7 +6,7 @@ import Image from "next/image";
 import cls from "classname";
 import { getcoffeestores } from "../../../lib/coffee-store.js";
 import { StoreContext } from "../../../context/store-context.js";
-
+import useSWR from 'swr';
 import styles from "../../styles/coffee-store.module.css";
 
 export async function getStaticProps(staticProps) {
@@ -44,7 +44,32 @@ const CoffeeStore = (props) => {
 
   const { FetchedcoffeeStores,setCoffeeStores } = useContext(StoreContext);
 
+  const handleCreateCoffeeStore = async (coffeeStore) => {
+    try{
+      const {name,imgUrl , fsq_id} = await coffeeStore;
+      const address = await coffeeStore.location.formatted_address;
+      const neighbourhood = await coffeeStore.location.cross_street;
+      const response = await fetch("/api/createCoffeeStore",{
+        method : "POST",
+        headers : {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({
+          fsq_id : `${fsq_id}`,
+          name,
+          address : address || "",
+          neighbourhood : neighbourhood || "",
+          imgUrl : imgUrl || "",
+          voting : 0
+        })
+        }
+      ) 
 
+      const dbcoffeeStore = await response.json();
+    }catch(err){
+      console.error(err)
+    }
+  }
 
   useEffect(() => {
       if (FetchedcoffeeStores.length > 0) {
@@ -53,15 +78,33 @@ const CoffeeStore = (props) => {
         });
         if (findCoffeeStoreFromContext) {
           setCoffeeStore(findCoffeeStoreFromContext);
+          handleCreateCoffeeStore(findCoffeeStoreFromContext);
           }
+      }
+      else{
+        handleCreateCoffeeStore(props.coffeeStore);
       }
 
   }, [id, props, props.coffeeStore]);
   const [votingCount, setVotingCount] = useState(0);
-
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+  const { data, error} = useSWR(`/api/getCoffeeStoreById?fsq_id=${id}` , fetcher);
   const onClickHandler = async () => {
+    let newcount = votingCount +1;
+    setVotingCount(newcount);
 
   };
+
+  useEffect(() =>{
+    if(data && data.length > 0){
+      setVotingCount(data[0].voting);
+      const location = { 'formatted_address' : data[0].address ,
+                          'cross_street' : data[0].neighbourhood                          
+                        }
+      data[0]['location'] = location;
+      setCoffeeStore(data[0]);
+    }
+  },[data])
 
   if (router.isFallback) {
     return <div>Loading....</div>;
@@ -72,7 +115,7 @@ const CoffeeStore = (props) => {
 
   return (<div className={styles.layout}>
     <Head>
-        <title>{name || "COFFEE STORE"}</title>    
+        <title>{name}</title>    
     </Head>
     <div className={styles.container}>
     <div className={styles.col1}>
@@ -97,7 +140,7 @@ const CoffeeStore = (props) => {
         </div></>)}  
         <div className={styles.iconWrapper}>
             <Image src="/static/star_FILL0_wght400_GRAD0_opsz48.svg" width={24} height={24} alt="star image"></Image>
-            <p className={styles.text}>1</p>
+            <p className={styles.text}>{votingCount}</p>
         </div>
 
         <button className={styles.upvotebutton} onClick={onClickHandler}>Upvote!</button>
