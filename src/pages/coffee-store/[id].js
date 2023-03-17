@@ -89,9 +89,28 @@ const CoffeeStore = (props) => {
   const [votingCount, setVotingCount] = useState(0);
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error} = useSWR(`/api/getCoffeeStoreById?fsq_id=${id}` , fetcher);
+  
+  
   const onClickHandler = async () => {
     let newcount = votingCount +1;
-    setVotingCount(newcount);
+    try{
+      const response = await fetch("/api/upvoteCoffeeStoreById",{
+        method : "PUT",
+        headers : {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({
+          fsq_id : `${id}`,
+        })
+      }
+      )
+      const dbcoffeeStore = await response.json();
+      if(dbcoffeeStore && dbcoffeeStore.length > 0){  
+        setVotingCount(newcount);
+      }
+  }catch(err){
+    console.error("Error update coffee Store" , err)
+  }
 
   };
 

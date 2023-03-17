@@ -12,33 +12,12 @@ const createCoffeeStore = async (req,res) => {
             res.json(records);
         }
         else{
-            if(fsq_id && name){
-                const createRecord = await table.create([
-                    {
-                        "fields": {
-                            fsq_id,
-                            name,
-                            address,
-                            neighbourhood,
-                            voting,
-                            imgUrl
-                        }
-                    }
-                ])
-                const records = getRecords(createRecord);
-                res.json({records})
-            }
-            else{
-                res.status(400);
-                res.json({
-                    message:"Name missing"
-                })
-            }
+           
         }}}
         catch(error){
-            console.error({message: "Error creating or finding store" , error })
+            console.error({message: "Error updateing coffeestore" , error })
             res.status(500)
-            res.json({message: "Error creating or finding store" , error })
+            res.json({message: "Error updateing coffeestore" , error })
         }}
             else{
                 res.status(400);
